@@ -35,9 +35,9 @@ export type Category =
   };
   
 
-// 回傳分類代碼（順序可調整）
-export function categoriesFromRegion(): Category[] {
+export function categoriesFromRegion(_region: 'kanto' | 'kansai'): Category[] {
   return ['japanese', 'don', 'ramen', 'curry', 'sushi', 'cafe', 'burger', 'chinese', 'yoshoku'];
 }
+
 
 
