@@ -70,6 +70,8 @@ export default function Page() {
 
   const [region, setRegion] = useState<'kanto' | 'kansai'>('kanto');
   const [category, setCategory] = useState<Category | null>(null);   // ★ 用 Category
+  const [picked, setPicked] = useState<string | null>(null);
+  const [open, setOpen] = useState(false);
 
   const data = region === 'kanto' ? dataKanto : dataKansai;
   const categories = useMemo(() => categoriesFromRegion(region), [region]); // 回傳 Category[]
