@@ -1,6 +1,7 @@
 'use client';
 
 import { useI18n } from '@/lib/i18n';
+import type { Category } from '@/lib/data'; // ★ 加這行（type-only import）
 
 export function CategoryChips({
   categories,
@@ -8,9 +9,9 @@ export function CategoryChips({
   onChange,
   clearLabel,
 }: {
-  categories: Category[];                    
-  value: Category | null;                     
-  onChange: (v: Category | null) => void;     
+  categories: Category[];                 // ★ 使用 Category
+  value: Category | null;                 // ★ 使用 Category
+  onChange: (v: Category | null) => void; // ★ 使用 Category
   clearLabel: string;
 }) {
   const { t } = useI18n();
@@ -24,18 +25,15 @@ export function CategoryChips({
         {clearLabel}
       </button>
 
-      {categories.map((code) => {
-        const label = t(code); // 沒有翻譯會回退顯示 code 本身
-        return (
-          <button
-            key={code}
-            onClick={() => onChange(code)}
-            className={`btn-chip ${value === code ? 'btn-chip--active' : ''}`}
-          >
-            {label}
-          </button>
-        );
-      })}
+      {categories.map((code) => (
+        <button
+          key={code}
+          onClick={() => onChange(code)}
+          className={`btn-chip ${value === code ? 'btn-chip--active' : ''}`}
+        >
+          {t(code)}
+        </button>
+      ))}
     </div>
   );
 }
