@@ -74,9 +74,9 @@ export default function Page() {
   const data = region === 'kanto' ? dataKanto : dataKansai;
   const categories = useMemo(() => categoriesFromRegion(region), [region]);
   const list = useMemo(
-    () => (category ? data[category] ?? [] : Object.values(data).flat()),
-    [data, category]
-  );
+  () => (category ? (data[category] ?? []) : Object.values(data).flat()),
+  [data, category]
+);
 
   function rollOne() {
     if (!list.length) return;
