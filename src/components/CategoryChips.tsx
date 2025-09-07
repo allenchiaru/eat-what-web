@@ -8,10 +8,10 @@ export function CategoryChips({
   onChange,
   clearLabel,
 }: {
-  categories: string[];       // 這裡放「代碼」例如 'ramen'
+  categories: string[]; // 傳入分類代碼
   value: string | null;
   onChange: (v: string | null) => void;
-  clearLabel: string;         // 通常傳 t('all')
+  clearLabel: string;
 }) {
   const { t } = useI18n();
 
@@ -25,8 +25,7 @@ export function CategoryChips({
       </button>
 
       {categories.map((code) => {
-        // 用 i18n 以「代碼」取顯示文字（找不到就退回 code 本身）
-        const label = (t as any)(code) ?? code;
+        const label = t(code); // 沒有翻譯會回退顯示 code 本身
         return (
           <button
             key={code}
