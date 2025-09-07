@@ -8,9 +8,9 @@ export function CategoryChips({
   onChange,
   clearLabel,
 }: {
-  categories: string[]; // 傳入分類代碼
-  value: string | null;
-  onChange: (v: string | null) => void;
+  categories: Category[];                    
+  value: Category | null;                     
+  onChange: (v: Category | null) => void;     
   clearLabel: string;
 }) {
   const { t } = useI18n();
