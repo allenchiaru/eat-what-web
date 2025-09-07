@@ -1,7 +1,7 @@
 'use client';
 
 import { useI18n } from '@/lib/i18n';
-import type { Category } from '@/lib/data'; // ★ 加這行（type-only import）
+import type { Category } from '@/lib/data'; // ← 必須有這行
 
 export function CategoryChips({
   categories,
@@ -9,9 +9,9 @@ export function CategoryChips({
   onChange,
   clearLabel,
 }: {
-  categories: Category[];                 // ★ 使用 Category
-  value: Category | null;                 // ★ 使用 Category
-  onChange: (v: Category | null) => void; // ★ 使用 Category
+  categories: Category[];                 // 使用 Category 聯集型別
+  value: Category | null;
+  onChange: (v: Category | null) => void;
   clearLabel: string;
 }) {
   const { t } = useI18n();
