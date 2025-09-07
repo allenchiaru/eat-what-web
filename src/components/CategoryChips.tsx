@@ -1,7 +1,7 @@
 'use client';
 
 import { useI18n } from '@/lib/i18n';
-import type { Category } from '@/lib/data'; // ← 必須有這行
+import type { Category } from '@/lib/data'; 
 
 export function CategoryChips({
   categories,
