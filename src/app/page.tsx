@@ -3,11 +3,13 @@
 import { useMemo, useState } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { dataKanto, dataKansai, categoriesFromRegion } from '@/lib/data';
+import type { Category } from '@/lib/data';   
 import { RegionToggle } from '@/components/RegionToggle';
 import { CategoryChips } from '@/components/CategoryChips';
 import { AdSlot } from '@/components/AdSlot';
 import { ResultModal } from '@/components/ResultModal';
 import Image from 'next/image';
+
 
 // 店家 logo 對照表，可以先放在 public/logos 下
 const logos: Record<string, string> = {
@@ -67,16 +69,15 @@ export default function Page() {
   const { t, lang, toggleLang } = useI18n();
 
   const [region, setRegion] = useState<'kanto' | 'kansai'>('kanto');
-  const [category, setCategory] = useState<string | null>(null);
-  const [picked, setPicked] = useState<string | null>(null);
-  const [open, setOpen] = useState(false);
+  const [category, setCategory] = useState<Category | null>(null);   // ★ 用 Category
 
   const data = region === 'kanto' ? dataKanto : dataKansai;
-  const categories = useMemo(() => categoriesFromRegion(region), [region]);
-  const list = useMemo(
-  () => (category ? (data[category] ?? []) : Object.values(data).flat()),
-  [data, category]
-);
+  const categories = useMemo(() => categoriesFromRegion(region), [region]); // 回傳 Category[]
+
+  const list = useMemo<string[]>(
+    () => (category ? (data[category] ?? []) : Object.values(data).flat()), // ★ 只有一個 ??，沒有多餘的 ?
+    [data, category]
+  );
 
   function rollOne() {
     if (!list.length) return;
