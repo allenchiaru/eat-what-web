@@ -34,7 +34,7 @@ const dict = {
     curry: 'カレー',
     cafe: 'カフェ / 軽食',
     burger: 'ハンバーガー / ファストフード',
-    chinese: '中華料理',
+    chinese: '中華',
     yoshoku: '洋食',
     sushi: '寿司',
   },
