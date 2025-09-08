@@ -69,7 +69,7 @@ export default function Page() {
   const { t, lang, toggleLang } = useI18n();
 
   const [region, setRegion] = useState<'kanto' | 'kansai'>('kanto');
-  const [category, setCategory] = useState<Category | null>(null);   // ★ 用 Category
+  const [category, setCategory] = useState<Category | null>(null);   
   const [picked, setPicked] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
 
@@ -77,7 +77,7 @@ export default function Page() {
   const categories = useMemo(() => categoriesFromRegion(region), [region]); // 回傳 Category[]
 
   const list = useMemo<string[]>(
-    () => (category ? (data[category] ?? []) : Object.values(data).flat()), // ★ 只有一個 ??，沒有多餘的 ?
+    () => (category ? (data[category] ?? []) : Object.values(data).flat()), 
     [data, category]
   );
 
