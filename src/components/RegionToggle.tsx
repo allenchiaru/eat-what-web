@@ -21,7 +21,7 @@ export function RegionToggle({
         }
         onClick={() => onChange('kanto')}
       >
-        關東/関東
+        關東／関東
       </button>
       <button
         aria-pressed={region === 'kansai'}
@@ -32,10 +32,8 @@ export function RegionToggle({
         }
         onClick={() => onChange('kansai')}
       >
-        關西/関西
+        關西／関西
       </button>
     </div>
   );
 }
-
-  
