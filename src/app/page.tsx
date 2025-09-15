@@ -11,7 +11,7 @@ import { ResultModal } from '@/components/ResultModal';
 import Image from 'next/image';
 
 
-// 店家 logo 對照表，可以先放在 public/logos 下
+// 店家 logo 對照表
 const logos: Record<string, string> = {
     '松屋': '/logos/matsuya.png',
     '大戸屋': '/logos/ootoya.png',
@@ -93,25 +93,36 @@ export default function Page() {
     window.open(`https://www.google.com/maps/search/${q}`, '_blank');
   };
 
-  return (
-    <main className="page flex flex-col items-center pt-10 pb-20">
-      <section className="w-full max-w-3xl space-y-6">
-        {/* Hero / Controls */}
-        <div className="panel p-6">
+ return (
+  <main className="page flex flex-col items-center pt-10 pb-24 px-4 sm:px-6"> {/* ← 新增左右內距 */}
+    <section className="w-full max-w-3xl space-y-7"> {/* ← 稍微拉大每塊之間距離 */}
+      {/* Hero / Controls */}
+      <div className="panel p-6 sm:p-8 rounded-2xl"> {/* ← 面板 padding 增加 */}
+        <div className="flex flex-col gap-5">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            <h1 className="text-3xl font-bold tracking-tight text-center sm:text-left">今天吃什麼</h1>
-            <div className="flex items-center justify-center gap-2">
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-center sm:text-left">
+              今天吃什麼
+            </h1>
+
+            {/* 區域切換（未選則變暗的新版 RegionToggle） */}
+            <div className="flex items-center justify-center">
               <RegionToggle region={region} onChange={(v) => { setRegion(v); setCategory(null); }} />
-              {/* 語言切換回來了 */}
-              <button className="btn btn-ghost text-xs" onClick={toggleLang}>
-                {lang === 'zh' ? '日本語' : '繁體中文'}
-              </button>
             </div>
           </div>
-          <p className="mt-3 text-center sm:text-left text-gray-400">
+
+          {/* 語言切換（如果你有放按鈕） */}
+          {/* <div className="flex justify-center sm:justify-start">
+            <button className="btn btn-ghost text-sm" onClick={toggleLang}>
+              {lang === 'zh' ? '日本語' : '繁體中文'}
+            </button>
+          </div> */}
+
+          {/* 說明文字，增加行高與左右留白感 */}
+          <p className="text-base leading-7 text-center sm:text-left text-gray-300">
             關東/關西的常見連鎖店，簡潔抽籤與地圖開啟。
           </p>
         </div>
+      </div>
 
         {/* Categories */}
         <div className="panel p-4">
