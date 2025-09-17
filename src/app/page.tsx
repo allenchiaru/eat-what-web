@@ -3,49 +3,49 @@
 import { useMemo, useState } from 'react';
 import { useI18n } from '@/lib/i18n';
 import { dataKanto, dataKansai, categoriesFromRegion } from '@/lib/data';
-import type { Category } from '@/lib/data';   
+import type { Category } from '@/lib/data';
 import { RegionToggle } from '@/components/RegionToggle';
 import { CategoryChips } from '@/components/CategoryChips';
 import { AdSlot } from '@/components/AdSlot';
 import { ResultModal } from '@/components/ResultModal';
-import Image from 'next/image';
-
+import { BrandAvatar } from '@/components/BrandAvatar'; // ★ 加上這行（必要）
+// 🛈 刪除原本未使用的：import Image from 'next/image';
 
 // 店家 logo 對照表
 const logos: Record<string, string> = {
-    '松屋': '/logos/matsuya.png',
-    '大戸屋': '/logos/ootoya.png',
-    '吉野家': '/logos/yoshinoya.png',
-    'すき家': '/logos/sukiya.png',
-    'かつや': '/logos/katsuya.png',
-    'やよい軒': '/logos/yayoiken.png',
-    'なか卯': '/logos/nakau.png',
-    '富士そば': '/logos/fujisoba.png',
-    'スシロー': '/logos/sushiro.png',
-    'くら寿司': '/logos/kurazushi.png',
-    'ラーメン花月嵐': '/logos/kagetsu.png',
-    '一風堂': '/logos/ippudo.png',
-    '一蘭': '/logos/ichiran.png',
-    'CoCo壱番屋': '/logos/cocoichi.png',
-    'ゴーゴーカレー': '/logos/go-go-curry.png',
-    'ドトール': '/logos/doutor.png',
-    'スターバックス': '/logos/starbucks.png',
-    'ベローチェ': '/logos/veloce.png',
-    'サンマルクカフェ': '/logos/stmarc-cafe.png',
-    'マクドナルド': '/logos/mcdonalds.png',
-    'モスバーガー': '/logos/mosburger.png',
-    'フレッシュネスバーガー': '/logos/freshness-burger.png',
-    'バーミヤン': '/logos/bamiyan.png',
-    '日高屋': '/logos/hidakaya.png',
-    '餃子の王将': '/logos/ohsho.png',
-    'ガスト': '/logos/gusto.png',
-    'サイゼリヤ': '/logos/saizeriya.png',
-    '大阪の王将': '/logos/osaka-ohsho.png',
-    '551蓬莱': '/logos/551horai.png',
-    '来来亭': '/logos/rairai-tei.png',
-    '天下一品': '/logos/tenkaippin.png',
-    '丸亀製麺': '/logos/marugame.png',
-    'コメダ珈琲店': '/logos/komeda.png',
+  '松屋': '/logos/matsuya.png',
+  '大戸屋': '/logos/ootoya.png',
+  '吉野家': '/logos/yoshinoya.png',
+  'すき家': '/logos/sukiya.png',
+  'かつや': '/logos/katsuya.png',
+  'やよい軒': '/logos/yayoiken.png',
+  'なか卯': '/logos/nakau.png',
+  '富士そば': '/logos/fujisoba.png',
+  'スシロー': '/logos/sushiro.png',
+  'くら寿司': '/logos/kurazushi.png',
+  'ラーメン花月嵐': '/logos/kagetsu.png',
+  '一風堂': '/logos/ippudo.png',
+  '一蘭': '/logos/ichiran.png',
+  'CoCo壱番屋': '/logos/cocoichi.png',
+  'ゴーゴーカレー': '/logos/go-go-curry.png',
+  'ドトール': '/logos/doutor.png',
+  'スターバックス': '/logos/starbucks.png',
+  'ベローチェ': '/logos/veloce.png',
+  'サンマルクカフェ': '/logos/stmarc-cafe.png',
+  'マクドナルド': '/logos/mcdonalds.png',
+  'モスバーガー': '/logos/mosburger.png',
+  'フレッシュネスバーガー': '/logos/freshness-burger.png',
+  'バーミヤン': '/logos/bamiyan.png',
+  '日高屋': '/logos/hidakaya.png',
+  '餃子の王将': '/logos/ohsho.png',
+  'ガスト': '/logos/gusto.png',
+  'サイゼリヤ': '/logos/saizeriya.png',
+  '大阪の王将': '/logos/osaka-ohsho.png',
+  '551蓬莱': '/logos/551horai.png',
+  '来来亭': '/logos/rairai-tei.png',
+  '天下一品': '/logos/tenkaippin.png',
+  '丸亀製麺': '/logos/marugame.png',
+  'コメダ珈琲店': '/logos/komeda.png',
 };
 
 export default function Page() {
@@ -184,7 +184,7 @@ export default function Page() {
         name={picked}
         onClose={() => setOpen(false)}
         onOpenMap={() => picked && openMap(picked)}
-        onCopy={() => picked && picked && navigator.clipboard.writeText(picked)}
+        onCopy={() => picked && navigator.clipboard.writeText(picked)} // ★ 精簡
       />
     </main>
   );
