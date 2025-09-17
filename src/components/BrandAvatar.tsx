@@ -4,10 +4,10 @@ import Image from 'next/image';
 type Props = {
   src?: string;
   alt: string;
-  size?: number; // 可調整圖示尺寸，預設 44
+  size?: number; // 可調整圖示尺寸，預設 50
 };
 
-export function BrandAvatar({ src, alt, size = 50 }: Props) {
+export function BrandAvatar({ src, alt, size = 100 }: Props) {
   return (
     <div className="w-11 h-11 rounded bg-white flex items-center justify-center overflow-hidden">
       {src ? (
