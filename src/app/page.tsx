@@ -8,7 +8,9 @@ import { RegionToggle } from '@/components/RegionToggle';
 import { CategoryChips } from '@/components/CategoryChips';
 import { AdSlot } from '@/components/AdSlot';
 import { ResultModal } from '@/components/ResultModal';
-import { BrandAvatar } from '@/components/BrandAvatar'; // ★ 加上這行（必要）
+import { BrandAvatar } from '@/components/BrandAvatar'; // ★ 新增這行
+// 移除：import Image from 'next/image';
+）
 
 // 店家 logo 對照表
 const logos: Record<string, string> = {
