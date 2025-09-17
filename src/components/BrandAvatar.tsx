@@ -19,8 +19,4 @@ export function BrandAvatar({
           className="object-contain p-1"
         />
       ) : (
-        <div className="text-xs text-black/60 px-2">{alt.slice(0, 2)}</div>
-      )}
-    </div>
-  );
-}
+        <
