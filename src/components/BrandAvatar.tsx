@@ -7,7 +7,7 @@ type Props = {
   size?: number; // 可調整圖示尺寸，預設 50
 };
 
-export function BrandAvatar({ src, alt, size = 100 }: Props) {
+export function BrandAvatar({ src, alt, size = 200 }: Props) {
   return (
     <div className="w-11 h-11 rounded bg-white flex items-center justify-center overflow-hidden">
       {src ? (
