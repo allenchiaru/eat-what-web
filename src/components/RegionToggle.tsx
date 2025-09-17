@@ -7,18 +7,19 @@ export function RegionToggle({
   region: 'kanto' | 'kansai';
   onChange: (v: 'kanto' | 'kansai') => void;
 }) {
-  // 不依賴全域 .btn 樣式，自己定義選取/未選取的外觀
   const base =
     'px-4 py-1.5 text-sm transition-colors outline-none focus-visible:ring-2 focus-visible:ring-white/40 rounded-none';
-  const selected = `${base} bg-white text-black`;
-  const unselected = `${base} bg-black text-white/80 hover:text-white hover:bg-black/80 border border-white/10`;
 
   return (
-    <div className="inline-flex rounded-xl overflow-hidden">
+    <div className="inline-flex rounded-xl overflow-hidden region-toggle">
       <button
         type="button"
         aria-pressed={region === 'kanto'}
-        className={region === 'kanto' ? selected : unselected}
+        className={`${base} border border-white/10 ${
+          region === 'kanto'
+            ? '!bg-white !text-black'
+            : '!bg-black !text-white/90 hover:!bg-black/80 hover:!text-white'
+        }`}
         onClick={() => onChange('kanto')}
       >
         關東 / 関東
@@ -26,7 +27,11 @@ export function RegionToggle({
       <button
         type="button"
         aria-pressed={region === 'kansai'}
-        className={region === 'kansai' ? selected : unselected}
+        className={`${base} border border-white/10 ${
+          region === 'kansai'
+            ? '!bg-white !text-black'
+            : '!bg-black !text-white/90 hover:!bg-black/80 hover:!text-white'
+        }`}
         onClick={() => onChange('kansai')}
       >
         關西 / 関西
