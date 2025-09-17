@@ -8,8 +8,8 @@ import { RegionToggle } from '@/components/RegionToggle';
 import { CategoryChips } from '@/components/CategoryChips';
 import { AdSlot } from '@/components/AdSlot';
 import { ResultModal } from '@/components/ResultModal';
-import { BrandAvatar } from '@/components/BrandAvatar'; // ★ 必須新增
-// 🔥 刪掉這行：import Image from 'next/image';
+import { BrandAvatar } from '@/components/BrandAvatar'; 
+
 
 
 // 店家 logo 對照表
