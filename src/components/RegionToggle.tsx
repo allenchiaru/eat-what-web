@@ -25,3 +25,12 @@ export function RegionToggle({
       </button>
       <button
         type="button"
+        aria-pressed={region === 'kansai'}
+        className={region === 'kansai' ? selected : unselected}
+        onClick={() => onChange('kansai')}
+      >
+        關西 / 関西
+      </button>
+    </div>
+  );
+}
